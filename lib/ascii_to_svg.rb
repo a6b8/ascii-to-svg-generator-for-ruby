@@ -46,7 +46,7 @@ module AsciiToSvg
             y: nil
           }
       },
-      instructions: {
+      symbols: {
         "\\": [ "\\" ],
         "/": [ "/" ],
         "X": [ "X", "x" ],
@@ -108,18 +108,18 @@ module AsciiToSvg
     if self.params_update( vars, true )
       self.reset_default
       params, lines = self.params_prepare( ascii, _length, vars )
-      symbols = ''
+      elements = ''
       for y in 0..params[:grid][:y][:length] - 1
         line = lines[ y ]
         chars = line.split( '' )
         for x in 0..params[:grid][:x][:length] - 1
           char = line[ x ]
-          instructions = self.cell_instructions( char, params )
+          symbols = self.cell_symbols( char, params )
           position = self.cell_position( x, y, params )
-          symbols += self.cell_svg( instructions, position, params )      
+          elements += self.cell_svg( symbols, position, params )      
         end
       end
-      result = self.generate( symbols, params )
+      result = self.generate( elements, params )
     else
     end
   end
@@ -183,7 +183,7 @@ module AsciiToSvg
       :canvas__margin__bottom,
       :cell__x__offset,
       :cell__y__offset,
-      :instructions,
+      :symbols,
       :style__line__stroke__width,
       :style__line__stroke__color,
       :style__line__stroke__opacity,
@@ -262,10 +262,10 @@ module AsciiToSvg
   end
 
 
-  def self.cell_instructions( char, params )
+  def self.cell_symbols( char, params )
     selector = nil
-    params[:instructions].keys.each do | key |
-       params[:instructions][ key ].include?( char ) ? selector = key : ''
+    params[:symbols].keys.each do | key |
+       params[:symbols][ key ].include?( char ) ? selector = key : ''
     end
 
     results = []
@@ -334,9 +334,9 @@ module AsciiToSvg
   end
 
 
-  def self.cell_svg( instructions, position, params )
+  def self.cell_svg( symbols, position, params )
     str = ''
-    instructions.each do | instruction |
+    symbols.each do | instruction |
       case instruction[ 0 ]
         when 'line'
           keys = instruction

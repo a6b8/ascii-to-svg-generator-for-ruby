@@ -1,7 +1,80 @@
-# AsciiToSvg
+# Ascii To Svg Generator for Ruby
+Generate beautiful s
+## Examples
+
+
+## Quickstart
+1. Install `gem`
+```ruby
+    gem install 'ascii_to_svg'
+```
+
+2. Run Code
+```ruby
+    require 'ascii_to_svg'
+
+    # Generate Example String
+    ascii = AsciiToSvg.example_string( ['x', 'o'], 256 )
+
+    # Generate SVG
+    svg = AsciiToSvg.from_string( ascii, 16, {} )
+
+    # => 
+```
+
+## Functions
+- get_default_params<br>
+  Output all Parameter
+```ruby
+    AsciiToSvg.get_default_params
+    # => {
+```
+- example_string()
+```ruby
+    # Without Variables
+    one = AsciiToSvg.example_string()
+
+    # Define  Output
+    with_variables = AsciiToSvg.example_string( ['x', 'o' ], 512 )
+```
+
+- from_string(
+```ruby
+
+```
+
+- compare_svg(
+```ruby
+
+```  
+
+## Naming
+```
+Canvas
+------------------------------------
+|                   ^
+|                   | Margin Top
+|        Grid       v
+|        ------------------------------
+|        |   Cell
+|        |   ------------------------
+|        |   |           | Offset x |
+| Margin |   |   Symbol  |<-------->|
+| Left   |   |           |          |
+| <----> |   |------------          |
+|        |   |        ^             |
+|        |   |        | Offset Y    |
+|        |   |        V             |
+|        |   ------------------------
+```
+
+
+
 
 
 ## Symbols
+
+
 | Nr | Sign | Image | Type |
 | :-- | :-- | :-- | :-- |
 | 1 | "\\" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/3-tl-br.svg"> | Line |
@@ -18,6 +91,7 @@
 
 ## Options
 ### Canvas
+Defines the full width and height.
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | A.1. | Size X |:canvas__size__x | `500` | Integer | Set width of canvas |
@@ -28,13 +102,15 @@
 
 
 ### Cell
+Defines the Area of one symbol including offset.
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | B.1. | X Offset |:cell__x__offset | `0` | Integer | Define the X (width) offset to the next cell |
 | B.2. | Y Offset |:cell__y__offset | `0` | Integer | Define the Y (height) offset to the next cell |
 
 
-### Instructions
+### Symbols
+Defines which `char` will be interpreted as "`svg element`"
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | C.1. | \ |:instructions__\ | `["\\"]` | Array | |
@@ -48,54 +124,37 @@
 
 
 ### Style
+Defines all Style Attributes. Styles can only changed by type of the svg element except "Canvas". Under "Symbol" you can find out which Symbol uses which svg Element.
+
 [**Line**](#line)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| D.1. | Line Stroke Width |:style__line__stroke__width | `2.0` | Float | |
-| D.2. | Line Stroke Color |:style__line__stroke__color | `"rgb(0,0,0)"` | String | |
-| D.3. | Line Stroke Opacity |:style__line__stroke__opacity | `1.0` | Float | |
-| D.4. | Line Stroke Linecap |:style__line__stroke__linecap | `"square"` | String | |
+| D.1. | Stroke Width |:style__line__stroke__width | `2.0` | Float | |
+| D.2. | Stroke Color |:style__line__stroke__color | `"rgb(0,0,0)"` | String | |
+| D.3. | Stroke Opacity |:style__line__stroke__opacity | `1.0` | Float | |
+| D.4. | Stroke Linecap |:style__line__stroke__linecap | `"square"` | String | |
 
 [**Ellipse**](#ellipse)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| D.5. | Ellipse Stroke Width |:style__ellipse__stroke__width | `2.0` | Float | |
-| D.6. | Ellipse Stroke Color |:style__ellipse__stroke__color | `"rgb(0,0,0)"` | String | |
-| D.7. | Ellipse Stroke Opacity |:style__ellipse__stroke__opacity | `1.0` | Float | |
-| D.8. | Ellipse Stroke Linecap |:style__ellipse__stroke__linecap | `"square"` | String | |
-| D.9. | Ellipse Fill |:style__ellipse__fill | `"none"` | String | |
+| D.5. | Stroke Width |:style__ellipse__stroke__width | `2.0` | Float | |
+| D.6. | Stroke Color |:style__ellipse__stroke__color | `"rgb(0,0,0)"` | String | |
+| D.7. | Stroke Opacity |:style__ellipse__stroke__opacity | `1.0` | Float | |
+| D.8. | Stroke Linecap |:style__ellipse__stroke__linecap | `"square"` | String | |
+| D.9. | Fill |:style__ellipse__fill | `"none"` | String | |
 
 [**Rectangle**](#rectangle)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| D.10. | Rectangle Fill Color |:style__rectangle__fill__color | `"rgb(0,0,0)"` | String | |
-| D.11. | Rectangle Fill Opacity |:style__rectangle__fill__opacity | `1.0` | Float | |
+| D.10. | Fill Color |:style__rectangle__fill__color | `"rgb(0,0,0)"` | String | |
+| D.11. | Fill Opacity |:style__rectangle__fill__opacity | `1.0` | Float | |
 
 [**Canvas**](#canvas)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| D.12. | Canvas Fill Color |:style__canvas__fill__color | `"rgb(255,255,255)"` | String | |
-| D.13. | Canvas Fill Opacity |:style__canvas__fill__opacity | `1.0` | Float | |
+| D.12. | Fill Color |:style__canvas__fill__color | `"rgb(255,255,255)"` | String | |
+| D.13. | Fill Opacity |:style__canvas__fill__opacity | `1.0` | Float | |
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'ascii_to_svg'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install ascii_to_svg
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
