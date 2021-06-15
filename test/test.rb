@@ -1,19 +1,5 @@
 require '../lib/ascii_to_svg'
 
-
-#characters = [ '-', '/', '|', "\\", '+', '#', '.' ]
-#ascii = 4096.times.map { | s | characters[ rand( 6 ) ] }.join()
-#svg = AsciiToSvg.from_string( ascii, 64 )
-#File.open( './test/1.svg', "w" ) { | f | f.write( svg ) }
-
-# params = AsciiToSvg.get_default_params
-# puts params[:canvas][:size][:x]
-
-# params[:canvas][:size][:x] = 1080
-# AsciiToSvg.set_default_params( params )
-# params = AsciiToSvg.get_default_params
-# puts params[:canvas][:size][:x]
-
 sets = [
     {
         test: 'Draw symbols',
@@ -86,12 +72,11 @@ sets = [
     }
 ] 
 
+puts 'TEST SVG'
 for index in 3..sets.length-1
     set = sets[ index ]
-    #puts index
-    #puts set[:test]
-    characters = set[:characters]
-    ascii = set[:times].times.map { | s | characters[ rand( characters.length ) ] }.join()
+    puts " [#{index}]\t" + set[:test]
+    ascii = AsciiToSvg.example_string( set[:characters], set[:times] )
     svg = AsciiToSvg.from_string( ascii, set[:chars], set[:params] )
     File.open( set[:path], "w" ) { | f | f.write( svg ) }
 end
