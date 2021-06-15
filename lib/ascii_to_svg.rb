@@ -1,114 +1,242 @@
 # frozen_string_literal: true
 
 require_relative "ascii_to_svg/version"
+require 'digest'
+
 
 module AsciiToSvg
   class Error < StandardError; end
-  # Your code goes here...
 
-  def from_string( ascii, _length )
-    params, lines = params_prepare( ascii, _length )
-    symbols = ''
-    for y in 0..params[:grid][:y][:length] - 1
-      line = lines[ y ]
-      chars = line.split( '' )
-      for x in 0..params[:grid][:x][:length] - 1
-        char = line[ x ]
-        instructions = cell_instructions( char, params )
-        position = cell_position( x, y, params )
-        symbols += cell_svg( instructions, position, params )      
-      end
-    end
-
-    result = generate( symbols, params )
-  end
-
-  private
-
-  def params_prepare( params, ascii, _length )   
-      params = {
-        canvas: {
-            size:{
-              x: 880,
-              y: nil,
-            },
-            margin: {
-                left: 120,
-                top: 120,
-                right: 120,
-                bottom: 120
-            }
-        },
-        grid: {
-            x: {
-                offset: nil,
-                length: nil
-            },
-            y: {
-                offset: nil,
-                length: nil
-            },
-            size: {
-                x: nil,
-                y: nil
-            }
-        },
-        cell: {
-            x: {
-              offset: 0
-            },
-            y: {
-              offset: 0
-            },
-            size: {
+  @template = {
+      canvas: {
+          size:{
+            x: 500,
+            y: nil,
+          },
+          margin: {
+              left: 0,
+              top: 0,
+              right: 0,
+              bottom: 0
+          }
+      },
+      grid: {
+          x: {
+              offset: nil,
+              length: nil
+          },
+          y: {
+              offset: nil,
+              length: nil
+          },
+          size: {
               x: nil,
               y: nil
-            }
+          }
+      },
+      cell: {
+          x: {
+            offset: 0
+          },
+          y: {
+            offset: 0
+          },
+          size: {
+            x: nil,
+            y: nil
+          }
+      },
+      instructions: {
+        "\\": [ "\\" ],
+        "/": [ "/" ],
+        "X": [ "X", "x" ],
+        "-": [ "-" ],
+        "|": [ "|", "1" ],
+        "O": [ "O", "o", "0" ],
+        "+": [ "+" ],
+        "#": [ "#" ]
+      },
+      style: {
+        line: {
+          stroke: {
+            width: 2.0,
+            color: 'rgb(0,0,0)',
+            opacity: 1.0,
+            linecap: 'square' # butt / round / square
+          }
         },
-        instructions: {
-          "\\": [ "\\" ],
-          "/": [ "/" ],
-          "X": [ "X", "x" ],
-          "-": [ "-" ],
-          "|": [ "|", "1" ],
-          "O": [ "O", "o", "0" ],
-          "+": [ "+" ],
-          "#": [ "#" ]
-        },
-        style: {
-          line: {
+        ellipse: {
             stroke: {
               width: 2.0,
               color: 'rgb(0,0,0)',
               opacity: 1.0,
-              linecap: 'square' # butt / round / square
-            }
-          },
-          ellipse: {
-              stroke: {
-                width: 2.0,
-                color: 'rgb(0,0,0)',
-                opacity: 1.0,
-                linecap: 'square'
-              },
-              fill: 'none'
-          },
-          rectangle: {
-            fill: {
-              color: 'rgb(0,0,0)',
-              opacity: 1.0
-            }
-          },
-          canvas: {
-            fill: {
-              color: 'rgb(255,255,255)',
-              opacity: 1.0
-            }          
+              linecap: 'square'
+            },
+            fill: 'none'
+        },
+        rectangle: {
+          fill: {
+            color: 'rgb(0,0,0)',
+            opacity: 1.0
           }
+        },
+        canvas: {
+          fill: {
+            color: 'rgb(255,255,255)',
+            opacity: 1.0
+          }          
         }
-    } 
+      }
+  }
 
+  @default = @template.clone
+
+
+  def self.get_default_params
+    return @template
+  end
+
+
+  def self.example_string( characters=[ '-', '/', '|', "\\", '+' ], t=512 )
+    return t.times
+      .map { | s | characters[ rand( characters.length ) ] }
+      .join()
+  end
+
+
+  def self.from_string( ascii, _length, vars = {} )
+    if self.params_update( vars, true )
+      self.reset_default
+      params, lines = self.params_prepare( ascii, _length, vars )
+      symbols = ''
+      for y in 0..params[:grid][:y][:length] - 1
+        line = lines[ y ]
+        chars = line.split( '' )
+        for x in 0..params[:grid][:x][:length] - 1
+          char = line[ x ]
+          instructions = self.cell_instructions( char, params )
+          position = self.cell_position( x, y, params )
+          symbols += self.cell_svg( instructions, position, params )      
+        end
+      end
+      result = self.generate( symbols, params )
+    else
+    end
+  end
+
+
+  def self.compare_svg( a, b )
+    compare = {}
+
+    [ [ :a, a ], [ :b, b ] ].each do | str |
+      str[ 1 ].gsub!( "\n", '' )
+      str[ 1 ].gsub!( ' ', '' )
+      compare[ str[ 0 ] ] = str[ 1 ]
+    end
+
+    result = {
+      hexdigest1: nil,
+      hexdigest2: nil,
+      unique: nil,
+      score: nil
+    }
+
+    result[:hexdigest1] = self.get_hexdigest( compare[:a] )
+    result[:hexdigest2] = self.get_hexdigest( compare[:b] )
+    result[:unique] = result[:hexdigest1] == result[:hexdigest2]
+    result[:score] = self.str_difference( compare[:a], compare[:b] )
+    return result
+  end
+
+
+  def self.get_hexdigest( str )
+    Digest::MD5.hexdigest str
+  end
+
+
+  private
+
+  def self.reset_default
+    @default = @template.clone
+  end
+
+
+  def self.str_difference( a, b )
+    a = a.to_s.downcase.split( '_' ).join( '' )
+    b = b.to_s.downcase.split( '_' ).join( '' )
+    longer = [ a.size, b.size ].max
+    same = a
+      .each_char
+      .zip( b.each_char )
+      .select { | a, b | a == b }
+      .size
+    ( longer - same ) / a.size.to_f
+  end
+
+
+  def self.params_update( vars, validation )
+    allow_list = [
+      :canvas__size__x,
+      :canvas__margin__left,
+      :canvas__margin__top,
+      :canvas__margin__right,
+      :canvas__margin__bottom,
+      :cell__x__offset,
+      :cell__y__offset,
+      :instructions,
+      :style__line__stroke__width,
+      :style__line__stroke__color,
+      :style__line__stroke__opacity,
+      :style__line__stroke__linecap,
+      :style__ellipse__stroke__width,
+      :style__ellipse__stroke__color,
+      :style__ellipse__stroke__opacity,
+      :style__ellipse__stroke__linecap,
+      :style__ellipse__fill,
+      :style__rectangle__fill__color,
+      :style__rectangle__fill__opacity,
+      :style__canvas__fill__color,
+      :style__canvas__fill__opacity
+    ]
+  
+    messages = []
+    params = @default.clone
+    vars.keys.each do | key |
+      if allow_list.include?( key ) 
+  
+        keys = key.to_s.split( '__' ).map { | a | a.to_sym }
+        case( keys.length )
+          when 1
+            params[ keys[ 0 ] ] = vars[ key ]
+          when 2
+            params[ keys[ 0 ] ][ keys[ 1 ] ] = vars[ key ]
+          when 3
+            params[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ] = vars[ key ]
+          when 4
+            params[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ][ keys[ 3 ] ] = vars[ key ]
+        end
+      else
+        nearest = allow_list
+          .map { | word | { score: self.str_difference( key, word ), word: word } }
+          .min_by { | item | item[:score] }
+
+        message = "\"#{key}\" is not a valid key, did you mean \"<--similar-->\"?"
+        message = message.gsub( '<--similar-->', nearest[:word].to_s )
+        messages.push( message )
+      end
+    end
     
+    if messages.length != 0
+      messages.length == 1 ? puts( 'Error found:' ) : puts( 'Errors found:' ) 
+      messages.each { | m | puts( '- ' + m ) }
+    end
+    return validation ? messages.length == 0 : params
+  end
+
+
+  def self.params_prepare( ascii, _length, vars )   
+    params = self.params_update( vars, false )
+
     params[:grid][:x][:length] = _length
     
     lines = ascii.chars.each_slice( params[:grid][:x][:length] ).map( &:join )
@@ -124,16 +252,17 @@ module AsciiToSvg
     params[:cell][:size][:x] = ( params[:grid][:size][:x] - tmp ) / params[:grid][:x][:length]
     
     tmp = [ :top, :bottom ].map{ | k | params[:canvas][:margin][ k ] }.sum
-    params[:canvas][:size][:y] = ( params[:cell][:size][:x] * params[:grid][:y][:length] ) + tmp
+    params[:canvas][:size][:y] = ( ( params[:cell][:size][:x] + params[:cell][:x][:offset])* params[:grid][:y][:length] ) + tmp
     params[:grid][:size][:y] = params[:canvas][:size][:y] - tmp
     
-    tmp = ( params[:cell][:y][:offset] * params[:grid][:y][:length] )
+    tmp = ( params[:cell][:y][:offset] * (params[:grid][:y][:length] ) )
     params[:cell][:size][:y] = ( params[:grid][:size][:y] - tmp ) / params[:grid][:y][:length]
-    
+
     return [ params, lines ]
   end
 
-  def cell_instructions( char, params )
+
+  def self.cell_instructions( char, params )
     selector = nil
     params[:instructions].keys.each do | key |
        params[:instructions][ key ].include?( char ) ? selector = key : ''
@@ -164,7 +293,7 @@ module AsciiToSvg
   end
 
 
-  def cell_position( x, y, params )
+  def self.cell_position( x, y, params )
     pos = {
       top:{
         left: nil,
@@ -182,7 +311,6 @@ module AsciiToSvg
         right: nil
       }
     }
-
 
     x = ( x * ( params[:cell][:size][:x] + params[:cell][:x][:offset] ) ) + params[:grid][:x][:offset]
     y = ( y * ( params[:cell][:size][:y] + params[:cell][:y][:offset] ) ) + params[:grid][:y][:offset]
@@ -206,7 +334,7 @@ module AsciiToSvg
   end
 
 
-  def cell_svg( instructions, position, params )
+  def self.cell_svg( instructions, position, params )
     str = ''
     instructions.each do | instruction |
       case instruction[ 0 ]
@@ -217,7 +345,6 @@ module AsciiToSvg
                 keys = c
                   .to_s.split( '__' )
                   .map { | c | c.to_sym }
-
             }
 
           x1, y1 = position[ keys[ 0 ][ 0 ] ][ keys[ 0 ][ 1 ] ]
@@ -273,7 +400,7 @@ module AsciiToSvg
   end
 
 
-  def generate( lines, params )
+  def self.generate( lines, params )
     svg = ''
     width = params[:canvas][:size][:x]
     height = params[:canvas][:size][:y]
