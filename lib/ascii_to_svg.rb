@@ -125,7 +125,7 @@ module AsciiToSvg
   end
 
 
-  def self.compare_svg( a, b )
+  def self.similar_svg( a, b )
     compare = {}
 
     [ [ :a, a ], [ :b, b ] ].each do | str |

@@ -1,5 +1,6 @@
 # Ascii To Svg Generator for Ruby
-Generate beautiful s
+This module generates beautiful svg images based on a string input.
+
 ## Examples
 
 
@@ -60,9 +61,17 @@ Generate beautiful s
 ```
 
 
-- compare_svg(
-```ruby
+### AsciiToSvg.similar_svg()
 
+```ruby
+    original_str = AsciiToSvg.example_string( ['x', 'o'], 256 )
+    original_svg = AsciiToSvg.from_string( original_str, 16, {} )
+
+    copy_str = original_str[ 0, original_str.length-1 ]
+    copy_svg = AsciiToSvg.from_string( copy_str, 16, {} )
+
+    AsciiToSvg.similar_svg( original_svg, copy_svg )
+    # =>
 ```  
 
 ## Naming
