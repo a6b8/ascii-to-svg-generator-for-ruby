@@ -48,7 +48,7 @@
 
 
 ### Style
-**Line**
+[**Line**](#line)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | D.1. | Line Stroke Width |:style__line__stroke__width | `2.0` | Float | |
@@ -56,7 +56,7 @@
 | D.3. | Line Stroke Opacity |:style__line__stroke__opacity | `1.0` | Float | |
 | D.4. | Line Stroke Linecap |:style__line__stroke__linecap | `"square"` | String | |
 
-**Ellipse**
+[**Ellipse**](#ellipse)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | D.5. | Ellipse Stroke Width |:style__ellipse__stroke__width | `2.0` | Float | |
@@ -65,13 +65,13 @@
 | D.8. | Ellipse Stroke Linecap |:style__ellipse__stroke__linecap | `"square"` | String | |
 | D.9. | Ellipse Fill |:style__ellipse__fill | `"none"` | String | |
 
-**Rectangle**
+[**Rectangle**](#rectangle)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | D.10. | Rectangle Fill Color |:style__rectangle__fill__color | `"rgb(0,0,0)"` | String | |
 | D.11. | Rectangle Fill Opacity |:style__rectangle__fill__opacity | `1.0` | Float | |
 
-**Canvas**
+[**Canvas**](#canvas)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | D.12. | Canvas Fill Color |:style__canvas__fill__color | `"rgb(255,255,255)"` | String | |
