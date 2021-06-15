@@ -43,7 +43,7 @@ This module generates beautiful svg images based on a string input.
     two = AsciiToSvg.example_string( ['x', 'o' ], 512 )
 ```
 
-- **from_string()**
+### AsciiToSvg.from_string()
 
 | | **Type** | **Required** | **Description** |
 |------:|:------|:------|:------|
@@ -71,7 +71,7 @@ This module generates beautiful svg images based on a string input.
     copy_svg = AsciiToSvg.from_string( copy_str, 16, {} )
 
     AsciiToSvg.similar_svg( original_svg, copy_svg )
-    # =>
+    # => => {:hexdigest1=>"79d5e81d230214749672a1c10e103c46", :hexdigest2=>"f48cacecf2720633dd081c3421d84981", :unique=>false, :score=>0.002799275481640046} 
 ```  
 
 ## Naming
@@ -98,10 +98,9 @@ Canvas
 
 
 
-## Symbols
+## Signs
 
-
-| Nr | Sign | Image | Type |
+| Nr | Sign | Image | SVG Element |
 | :-- | :-- | :-- | :-- |
 | 1 | "\\" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/3-tl-br.svg"> | Line |
 | 2 | "\|" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/2-vertical.svg"> | Line |
@@ -137,16 +136,16 @@ Defines the Area of one symbol including offset.
 
 ### Symbols
 Defines which `char` will be interpreted as "`svg element`"
-| Nr | Name | Key | Default | Type | Description |
+| Nr | Name | Key | Default | Type | Image |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| C.1. | \ |:instructions__\ | `["\\"]` | Array | |
-| C.2. | / |:instructions__/ | `["/"]` | Array | |
-| C.3. | X |:instructions__X | `["X", "x"]` | Array | |
-| C.4. | - |:instructions__- | `["-"]` | Array | |
-| C.5. | | |:instructions__| | `["|", "1"]` | Array | |
-| C.6. | O |:instructions__O | `["O", "o", "0"]` | Array | |
-| C.7. | + |:instructions__+ | `["+"]` | Array | |
-| C.8. | # |:instructions__# | `["#"]` | Array | |
+| C.1. | \ |:options__\\\\ | `["\\"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/3-tl-br.svg"> |
+| C.2. | / | :options__/ | `["/"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/1-tr-bl.svg"> |
+| C.3. | X | :options__X | `["X", "x"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/7-x.svg"> |
+| C.4. | - | :options__- | `["-"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/0-minus.svg"> |
+| C.5. | \| | :options__\| | `["\|", "1"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/2-vertical.svg"> |
+| C.6. | O | :options__O | `["O", "o", "0"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/8-ellipse.svg"> |
+| C.7. | + | :options__+ | `["+"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/4-plus.svg"> |
+| C.8. | # | :options__# | `["#"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/5-rectangle.svg"> |
 
 
 ### Style
@@ -155,19 +154,19 @@ Defines all Style Attributes. Styles can only changed by type of the svg element
 [**Line**](#line)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| D.1. | Stroke Width |:style__line__stroke__width | `2.0` | Float | |
-| D.2. | Stroke Color |:style__line__stroke__color | `"rgb(0,0,0)"` | String | |
-| D.3. | Stroke Opacity |:style__line__stroke__opacity | `1.0` | Float | |
-| D.4. | Stroke Linecap |:style__line__stroke__linecap | `"square"` | String | |
+| D.1. | Stroke Width |:style__line__stroke__width | `2.0` | Float | Define width of stroke, please notice linecap type for desired behavior |
+| D.2. | Stroke Color |:style__line__stroke__color | `"rgb(0,0,0)"` | String | Define color of stroke in RGB, you can also use HTML Color names or "none" |
+| D.3. | Stroke Opacity |:style__line__stroke__opacity | `1.0` | Float | Define opacity of the stroke, use floating numbers. |
+| D.4. | Stroke Linecap |:style__line__stroke__linecap | `"square"` | String | Defines behavior of line ("butt" / "round" / "sqaure"). Detailed explaination: [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap)|
 
 [**Ellipse**](#ellipse)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| D.5. | Stroke Width |:style__ellipse__stroke__width | `2.0` | Float | |
-| D.6. | Stroke Color |:style__ellipse__stroke__color | `"rgb(0,0,0)"` | String | |
-| D.7. | Stroke Opacity |:style__ellipse__stroke__opacity | `1.0` | Float | |
-| D.8. | Stroke Linecap |:style__ellipse__stroke__linecap | `"square"` | String | |
-| D.9. | Fill |:style__ellipse__fill | `"none"` | String | |
+| D.5. | Stroke Width |:style__ellipse__stroke__width | `2.0` | Float | Define stroke width, use floating numbers |
+| D.6. | Stroke Color |:style__ellipse__stroke__color | `"rgb(0,0,0)"` | String | Define stroke color in RGB, you can also use HTML Color names or "none". |
+| D.7. | Stroke Opacity |:style__ellipse__stroke__opacity | `1.0` | Float | Set stroke opacity, use floating numbers. |
+| D.8. | Stroke Linecap |:style__ellipse__stroke__linecap | `"square"` | String | Defines behavior of ellipse ("butt" / "round" / "sqaure"). Detailed explaination: [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap)| |
+| D.9. | Fill |:style__ellipse__fill | `"none"` | String | Define color fill of |
 
 [**Rectangle**](#rectangle)
 | Nr | Name | Key | Default | Type | Description |
