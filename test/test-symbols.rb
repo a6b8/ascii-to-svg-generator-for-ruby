@@ -8,7 +8,8 @@ symbols = [
     [ '+', '4-plus.svg' ],
     [ '#','5-rectangle.svg' ],
     [ '.', '6-empty.svg' ],
-    [ 'x', '7-x.svg' ]
+    [ 'x', '7-x.svg' ],
+    [ '0', '8-ellipse.svg' ]
 ]
 
 symbols.each do | symbol |
