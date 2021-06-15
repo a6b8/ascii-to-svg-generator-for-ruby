@@ -19,32 +19,37 @@ Generate beautiful s
     # Generate SVG
     svg = AsciiToSvg.from_string( ascii, 16, {} )
 
-    # => 
+    # => "<svg xmlns=\"http://www.w3.org/2000/svg ...
 ```
 
 ## Functions
-- get_default_params<br>
+### AsciiToSvg.options<br>
   Output all Parameter
 ```ruby
-    AsciiToSvg.get_default_params
-    # => {
+    AsciiToSvg.options
+    # => {:canvas=>{:size=>{:x=>500 ...
 ```
-- example_string()
-```ruby
-    # Without Variables
-    one = AsciiToSvg.example_string()
+### AsciiToSvg.example_string()
 
-    # Define  Output
-    with_variables = AsciiToSvg.example_string( ['x', 'o' ], 512 )
+| **Type** | **Required** | **Description** | **Example** | **Description** |
+|------:|:------|:------|:------|:------| 
+| **characters** | ```Array (of single alphabetic character)``` | No | ```[ 'x', 'o' ]``` | Set alphabetic characters for string |
+| **length** | ```Integer``` | No | ```512``` | Lengt of generated String | |
+<br>
+
+```ruby
+    one = AsciiToSvg.example_string()
+    two = AsciiToSvg.example_string( ['x', 'o' ], 512 )
 ```
 
 - **from_string()**
 
-| | **Value** | **Type** |
-|------:|:------|:------|
-| **Ascii** | ```"String"``` | String |
-| **Lenght** | ```64``` | Integer |
-| **Options** | ```{}``` | Object |
+| | **Type** | **Required** | **Description** |
+|------:|:------|:------|:------|
+| **ascii** | ```String``` | Yes | A String of one or more Characters |
+| **lenght** | ```Integer``` | Yes | Number of Characters in one Line (Row) |
+| **options** | ```Hash``` |  No | Modify output. For detailed Information | 
+<br>
 
 ```ruby
     AsciiToSvg.from_string(

@@ -92,7 +92,7 @@ module AsciiToSvg
   @default = @template.clone
 
 
-  def self.get_default_params
+  def self.options
     return @template
   end
 
@@ -105,21 +105,21 @@ module AsciiToSvg
 
 
   def self.from_string( ascii, _length, vars = {} )
-    if self.params_update( vars, true )
+    if self.options_update( vars, true )
       self.reset_default
-      params, lines = self.params_prepare( ascii, _length, vars )
+      options, lines = self.options_prepare( ascii, _length, vars )
       elements = ''
-      for y in 0..params[:grid][:y][:length] - 1
+      for y in 0..options[:grid][:y][:length] - 1
         line = lines[ y ]
         chars = line.split( '' )
-        for x in 0..params[:grid][:x][:length] - 1
+        for x in 0..options[:grid][:x][:length] - 1
           char = line[ x ]
-          symbols = self.cell_symbols( char, params )
-          position = self.cell_position( x, y, params )
-          elements += self.cell_svg( symbols, position, params )      
+          symbols = self.cell_symbols( char, options )
+          position = self.cell_position( x, y, options )
+          elements += self.cell_svg( symbols, position, options )      
         end
       end
-      result = self.generate( elements, params )
+      result = self.generate( elements, options )
     else
     end
   end
@@ -174,7 +174,7 @@ module AsciiToSvg
   end
 
 
-  def self.params_update( vars, validation )
+  def self.options_update( vars, validation )
     allow_list = [
       :canvas__size__x,
       :canvas__margin__left,
@@ -200,20 +200,20 @@ module AsciiToSvg
     ]
   
     messages = []
-    params = @default.clone
+    options = @default.clone
     vars.keys.each do | key |
       if allow_list.include?( key ) 
   
         keys = key.to_s.split( '__' ).map { | a | a.to_sym }
         case( keys.length )
           when 1
-            params[ keys[ 0 ] ] = vars[ key ]
+            options[ keys[ 0 ] ] = vars[ key ]
           when 2
-            params[ keys[ 0 ] ][ keys[ 1 ] ] = vars[ key ]
+            options[ keys[ 0 ] ][ keys[ 1 ] ] = vars[ key ]
           when 3
-            params[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ] = vars[ key ]
+            options[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ] = vars[ key ]
           when 4
-            params[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ][ keys[ 3 ] ] = vars[ key ]
+            options[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ][ keys[ 3 ] ] = vars[ key ]
         end
       else
         nearest = allow_list
@@ -230,42 +230,42 @@ module AsciiToSvg
       messages.length == 1 ? puts( 'Error found:' ) : puts( 'Errors found:' ) 
       messages.each { | m | puts( '- ' + m ) }
     end
-    return validation ? messages.length == 0 : params
+    return validation ? messages.length == 0 : options
   end
 
 
-  def self.params_prepare( ascii, _length, vars )   
-    params = self.params_update( vars, false )
+  def self.options_prepare( ascii, _length, vars )   
+    options = self.options_update( vars, false )
 
-    params[:grid][:x][:length] = _length
+    options[:grid][:x][:length] = _length
     
-    lines = ascii.chars.each_slice( params[:grid][:x][:length] ).map( &:join )
-    params[:grid][:y][:length] = lines.length
+    lines = ascii.chars.each_slice( options[:grid][:x][:length] ).map( &:join )
+    options[:grid][:y][:length] = lines.length
 
-    params[:grid][:x][:offset] = params[:canvas][:margin][:left] + params[:cell][:x][:offset] / 2
-    params[:grid][:y][:offset] = params[:canvas][:margin][:top] + params[:cell][:x][:offset] / 2
+    options[:grid][:x][:offset] = options[:canvas][:margin][:left] + options[:cell][:x][:offset] / 2
+    options[:grid][:y][:offset] = options[:canvas][:margin][:top] + options[:cell][:x][:offset] / 2
 
-    tmp = [ :left, :right ].map{ | k | params[:canvas][:margin][ k ] }.sum
-    params[:grid][:size][:x] = params[:canvas][:size][:x] - tmp
+    tmp = [ :left, :right ].map{ | k | options[:canvas][:margin][ k ] }.sum
+    options[:grid][:size][:x] = options[:canvas][:size][:x] - tmp
 
-    tmp = ( params[:cell][:x][:offset] * params[:grid][:x][:length] )
-    params[:cell][:size][:x] = ( params[:grid][:size][:x] - tmp ) / params[:grid][:x][:length]
+    tmp = ( options[:cell][:x][:offset] * options[:grid][:x][:length] )
+    options[:cell][:size][:x] = ( options[:grid][:size][:x] - tmp ) / options[:grid][:x][:length]
     
-    tmp = [ :top, :bottom ].map{ | k | params[:canvas][:margin][ k ] }.sum
-    params[:canvas][:size][:y] = ( ( params[:cell][:size][:x] + params[:cell][:x][:offset])* params[:grid][:y][:length] ) + tmp
-    params[:grid][:size][:y] = params[:canvas][:size][:y] - tmp
+    tmp = [ :top, :bottom ].map{ | k | options[:canvas][:margin][ k ] }.sum
+    options[:canvas][:size][:y] = ( ( options[:cell][:size][:x] + options[:cell][:x][:offset])* options[:grid][:y][:length] ) + tmp
+    options[:grid][:size][:y] = options[:canvas][:size][:y] - tmp
     
-    tmp = ( params[:cell][:y][:offset] * (params[:grid][:y][:length] ) )
-    params[:cell][:size][:y] = ( params[:grid][:size][:y] - tmp ) / params[:grid][:y][:length]
+    tmp = ( options[:cell][:y][:offset] * (options[:grid][:y][:length] ) )
+    options[:cell][:size][:y] = ( options[:grid][:size][:y] - tmp ) / options[:grid][:y][:length]
 
-    return [ params, lines ]
+    return [ options, lines ]
   end
 
 
-  def self.cell_symbols( char, params )
+  def self.cell_symbols( char, options )
     selector = nil
-    params[:symbols].keys.each do | key |
-       params[:symbols][ key ].include?( char ) ? selector = key : ''
+    options[:symbols].keys.each do | key |
+       options[:symbols][ key ].include?( char ) ? selector = key : ''
     end
 
     results = []
@@ -293,7 +293,7 @@ module AsciiToSvg
   end
 
 
-  def self.cell_position( x, y, params )
+  def self.cell_position( x, y, options )
     pos = {
       top:{
         left: nil,
@@ -312,29 +312,29 @@ module AsciiToSvg
       }
     }
 
-    x = ( x * ( params[:cell][:size][:x] + params[:cell][:x][:offset] ) ) + params[:grid][:x][:offset]
-    y = ( y * ( params[:cell][:size][:y] + params[:cell][:y][:offset] ) ) + params[:grid][:y][:offset]
+    x = ( x * ( options[:cell][:size][:x] + options[:cell][:x][:offset] ) ) + options[:grid][:x][:offset]
+    y = ( y * ( options[:cell][:size][:y] + options[:cell][:y][:offset] ) ) + options[:grid][:y][:offset]
 
-    half_x = params[:cell][:size][:x] / 2
-    half_y = params[:cell][:size][:y] / 2
+    half_x = options[:cell][:size][:x] / 2
+    half_y = options[:cell][:size][:y] / 2
 
     pos[:top][:left] = [ x, y ]
     pos[:top][:center] = [ x + half_x, y ]
-    pos[:top][:right] = [ x + params[:cell][:size][:x], y ]
+    pos[:top][:right] = [ x + options[:cell][:size][:x], y ]
 
     pos[:center][:left] = [ x, y + half_y ]
     pos[:center][:center] = [ x + half_x, y + half_y ]
-    pos[:center][:right] = [ x + params[:cell][:size][:x], y + half_y ]
+    pos[:center][:right] = [ x + options[:cell][:size][:x], y + half_y ]
 
-    pos[:bottom][:left] = [ x, y + params[:cell][:size][:y] ]
-    pos[:bottom][:center] = [ x + half_y, y + params[:cell][:size][:y] ]
-    pos[:bottom][:right] = [ x + params[:cell][:size][:x], y + params[:cell][:size][:y] ]
+    pos[:bottom][:left] = [ x, y + options[:cell][:size][:y] ]
+    pos[:bottom][:center] = [ x + half_y, y + options[:cell][:size][:y] ]
+    pos[:bottom][:right] = [ x + options[:cell][:size][:x], y + options[:cell][:size][:y] ]
 
     return pos
   end
 
 
-  def self.cell_svg( symbols, position, params )
+  def self.cell_svg( symbols, position, options )
     str = ''
     symbols.each do | instruction |
       case instruction[ 0 ]
@@ -350,10 +350,10 @@ module AsciiToSvg
           x1, y1 = position[ keys[ 0 ][ 0 ] ][ keys[ 0 ][ 1 ] ]
           x2, y2 = position[ keys[ 1 ][ 0 ] ][ keys[ 1 ][ 1 ] ]
 
-          s_width = params[:style][:line][:stroke][:width].to_s
-          s_color = params[:style][:line][:stroke][:color].to_s
-          s_opacity = params[:style][:line][:stroke][:opacity].to_s
-          s_linecap = params[:style][:line][:stroke][:linecap].to_s
+          s_width = options[:style][:line][:stroke][:width].to_s
+          s_color = options[:style][:line][:stroke][:color].to_s
+          s_opacity = options[:style][:line][:stroke][:opacity].to_s
+          s_linecap = options[:style][:line][:stroke][:linecap].to_s
 
           str += "<line x1=\"#{x1}\" y1=\"#{y1}\" x2=\"#{x2}\" y2=\"#{y2}\" style=\"stroke-width: #{s_width};stroke: #{s_color};stroke-opacity: #{s_opacity};stroke-linecap: #{s_linecap};\" transform=\"matrix(1,0,0,1,0,0)\" />"
 
@@ -367,14 +367,14 @@ module AsciiToSvg
             }
 
           cx, cy = position[ keys[ 0 ][ 0 ].to_sym ][ keys[ 0 ][ 1 ].to_sym ]
-          rx = params[:cell][:size][:x] / 2
-          ry = params[:cell][:size][:y] / 2
+          rx = options[:cell][:size][:x] / 2
+          ry = options[:cell][:size][:y] / 2
 
-          s_width = params[:style][:ellipse][:stroke][:width]
-          s_color = params[:style][:ellipse][:stroke][:color]
-          s_opacity = params[:style][:ellipse][:stroke][:opacity]
-          s_linecap = params[:style][:ellipse][:stroke][:linecap]
-          e_fill = params[:style][:ellipse][:fill]
+          s_width = options[:style][:ellipse][:stroke][:width]
+          s_color = options[:style][:ellipse][:stroke][:color]
+          s_opacity = options[:style][:ellipse][:stroke][:opacity]
+          s_linecap = options[:style][:ellipse][:stroke][:linecap]
+          e_fill = options[:style][:ellipse][:fill]
           str += "<ellipse cx=\"#{cx}\" cy=\"#{cy}\" rx=\"#{rx}\" ry=\"#{ry}\" style=\"stroke-width: #{s_width};stroke: #{s_color};stroke-opacity: #{s_opacity};stroke-linecap: #{s_linecap};; fill: #{e_fill}\" transform=\"matrix(1,0,0,1,0,0)\" />"
 
         when 'rectangle'
@@ -387,11 +387,11 @@ module AsciiToSvg
           }
 
           x, y = position[ keys[ 0 ][ 0 ].to_sym ][ keys[ 0 ][ 1 ].to_sym ]
-          r_fill = params[:style][:rectangle][:fill][:color]
-          r_opacity = params[:style][:rectangle][:fill][:opacity]
+          r_fill = options[:style][:rectangle][:fill][:color]
+          r_opacity = options[:style][:rectangle][:fill][:opacity]
 
-          width = params[:cell][:size][:x]
-          height = params[:cell][:size][:y]
+          width = options[:cell][:size][:x]
+          height = options[:cell][:size][:y]
 
           str += "<rect x=\"#{x}\" y=\"#{y}\" width=\"#{width}\" height=\"#{height}\" style=\"fill: #{r_fill}; fill-opacity: #{r_opacity}\" transform=\"matrix(1,0,0,1,0,0)\" />"
       end
@@ -400,12 +400,12 @@ module AsciiToSvg
   end
 
 
-  def self.generate( lines, params )
+  def self.generate( lines, options )
     svg = ''
-    width = params[:canvas][:size][:x]
-    height = params[:canvas][:size][:y]
-    fill = params[:style][:canvas][:fill][:color]
-    fill_opacity = params[:style][:canvas][:fill][:opacity].to_s
+    width = options[:canvas][:size][:x]
+    height = options[:canvas][:size][:y]
+    fill = options[:style][:canvas][:fill][:color]
+    fill_opacity = options[:style][:canvas][:fill][:opacity].to_s
 
     svg += "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:jfreesvg=\"http://www.jfree.org/jfreesvg/svg\" width=\"#{width}\" height=\"#{height}\" text-rendering=\"auto\" shape-rendering=\"auto\">
   <defs></defs>"
