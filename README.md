@@ -38,10 +38,22 @@ Generate beautiful s
     with_variables = AsciiToSvg.example_string( ['x', 'o' ], 512 )
 ```
 
-- from_string(
-```ruby
+- **from_string()**
 
+| | **Value** | **Type** |
+|------:|:------|:------|
+| **Ascii** | ```"String"``` | String |
+| **Lenght** | ```64``` | Integer |
+| **Options** | ```{}``` | Object |
+
+```ruby
+    AsciiToSvg.from_string(
+        ascii, 
+        length, 
+        options
+    )
 ```
+
 
 - compare_svg(
 ```ruby
@@ -51,11 +63,11 @@ Generate beautiful s
 ## Naming
 ```
 Canvas
-------------------------------------
+-------------------------------------
 |                   ^
 |                   | Margin Top
 |        Grid       v
-|        ------------------------------
+|        ----------------------------
 |        |   Cell
 |        |   ------------------------
 |        |   |           | Offset x |
