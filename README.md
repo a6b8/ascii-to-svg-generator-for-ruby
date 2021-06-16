@@ -1,4 +1,4 @@
-# Ascii To Svg Generator for Ruby
+# Ascii to Svg Generator for Ruby
 This module generates beautiful svg images based on a string input.
 
 ## Examples
