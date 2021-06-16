@@ -6,19 +6,19 @@ Gem::Specification.new do |spec|
   spec.name          = "ascii_to_svg"
   spec.version       = AsciiToSvg::VERSION
   spec.authors       = ["a6b8"]
-  spec.email         = ["andreasbanholzer@me.com"]
+  spec.email         = ["hello@13plu4.com"]
 
-  spec.summary       = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description   = "TODO: Write a longer description or delete this line."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Generates beautiful svg images based on a string input."
+  spec.description   = "Generates beautiful svg images based on a string input."
+  spec.homepage      = "https://github.com/a6b8/ascii-to-svg-generator-for-ruby"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/a6b8/ascii-to-svg-generator-for-ruby"
+  spec.metadata["changelog_uri"] = "https://raw.githubusercontent.com/a6b8/ascii-to-svg-generator-for-ruby/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
