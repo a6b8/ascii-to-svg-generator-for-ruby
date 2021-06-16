@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["a6b8"]
   spec.email         = ["hello@13plu4.com"]
 
-  spec.summary       = "Generates beautiful svg images based on a string input."
-  spec.description   = "Generates beautiful svg images based on a string input."
+  spec.summary       = "Generative Art based on input Strings."
+  spec.description   = "Generates beautiful svg vecor images based on a string input. "
   spec.homepage      = "https://github.com/a6b8/ascii-to-svg-generator-for-ruby"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
