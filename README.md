@@ -1,5 +1,4 @@
 <img src="https://github.com/a6b8/a6b8/blob/main/docs/ascii-to-svg-for-ruby/readme/ascii-to-svg-generator-headline.png" height="70" /><br>
- 
 **Ascii to Svg Generator for Ruby**
 
 This module generates beautiful svg images based on a string input.
