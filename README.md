@@ -1,4 +1,5 @@
-<img src="https://github.com/a6b8/a6b8/blob/main/docs/ascii-to-svg-for-ruby/readme/ascii-to-svg-generator-headline.png" height="70" /><br>
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/ascii-to-svg.svg" height="60px" banner="Ascii Art To Svg">
+
 **Ascii to Svg Generator for Ruby**
 
 This module generates beautiful svg images based on a input string.
@@ -59,7 +60,8 @@ This module generates beautiful svg images based on a input string.
     }
 ```
 
-## Quickstart
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/quickstart.svg" height="60px" banner="Quickstart">
+
 1. Install `gem`
 ```ruby
     gem install 'ascii_to_svg'
@@ -78,7 +80,8 @@ This module generates beautiful svg images based on a input string.
     # => "<svg xmlns=\"http://www.w3.org/2000/svg ...
 ```
 
-## Functions
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/functions.svg" height="60px" banner="Functions">
+
 ### AsciiToSvg.options<br>
   Output all Parameter
 ```ruby
@@ -129,7 +132,8 @@ This module generates beautiful svg images based on a input string.
     # => => {:hexdigest1=>"79d5e81d230214749672a1c10e103c46", :hexdigest2=>"f48cacecf2720633dd081c3421d84981", :unique=>false, :score=>0.002799275481640046} 
 ```  
 
-## Naming
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/naming.svg" height="60px" banner="Naming">
+
 ```
 CANVAS
 -------------------------------------
@@ -149,7 +153,7 @@ CANVAS
 |        |   ------------------------
 ```
 
-## Signs
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/symbols.svg" height="60px" banner="Symbols">
 
 | Nr | Sign | Image | SVG Element |
 | :-- | :-- | :-- | :-- |
@@ -165,7 +169,8 @@ CANVAS
 
 
 
-## Options
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/options.svg" height="60px" banner="Options">
+
 ### Canvas
 Defines the full width and height.
 | Nr | Name | Key | Default | Type | Description |
@@ -232,14 +237,16 @@ Defines all Style Attributes. Styles can only changed by type of the svg element
 | D.13. | Fill Opacity |:style__canvas__fill__opacity | `1.0` | Float | Set canvas infill opacity, use floating numbers.|
 
 
-## Contributing
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/contributing.svg" height="60px" banner="Contributing">
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/a6b8/ascii_to_svg. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/a6b8/ascii_to_svg/blob/master/CODE_OF_CONDUCT.md).
 
-## License
+
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/license.svg" height="60px" banner="License">
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-## Code of Conduct
+
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/code-of-conduct.svg" height="60px" banner="Code of Conduct">
 
 Everyone interacting in the AsciiToSvg project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/a6b8/ascii_to_svg/blob/master/CODE_OF_CONDUCT.md).
