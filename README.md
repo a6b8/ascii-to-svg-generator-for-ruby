@@ -3,13 +3,53 @@ This module generates beautiful svg images based on a string input.
 
 ## Examples
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/0.svg">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/1.svg">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/2.svg">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/3.svg">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/4.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/0.svg">
 
+```
+[ '-', '/', '|', "\\", '#' ]
+```
 
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/3.svg">
+
+```
+[ '-', '|', '#' ]
+```
+
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/4.svg">
+
+```
+[ '-', '|', '#', 'o', '\\' ]
+```
+
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/6.svg">
+
+```
+[ '|', 'o', '.' ]
+style__line__stroke__color: 'brown',
+style__ellipse__stroke__color: 'orange'
+```
+
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/7.svg">
+
+```
+[ '/', '\\' ]
+style__line__stroke__color: 'brown',
+style__ellipse__stroke__color: 'orange'
+```
+
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/12.svg">
+
+```
+[ 'x', '.' ]
+```
+
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/14.svg">
+
+```
+[ '|', '.', '-' ]
+style__canvas__fill__color: '#0A0C10',
+style__line__stroke__color: '#8D949D'
+```
 
 ## Quickstart
 1. Install `gem`
