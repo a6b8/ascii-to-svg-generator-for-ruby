@@ -4,8 +4,8 @@
 This module generates beautiful svg images based on a input string.
 
 ## Examples
-e
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/0.svg">
+
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/0.svg" headline="Example">
 
 ```ruby
     character_set = [ '-', '/', '|', "\", '#' ]
