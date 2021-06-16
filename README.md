@@ -8,55 +8,55 @@ e
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/0.svg">
 
 ```ruby
-character_set = [ '-', '/', '|', "\", '#' ]
+    character_set = [ '-', '/', '|', "\", '#' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/3.svg">
 
 ```ruby
-character_set = [ '-', '|', '#' ]
+    character_set = [ '-', '|', '#' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/4.svg">
 
 ```ruby
-character_set = [ '-', '|', '#', 'o', '\' ]
+    character_set = [ '-', '|', '#', 'o', '\' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/6.svg">
 
 ```ruby
-character_set = [ '|', 'o', '.' ]
-options = {
-    style__line__stroke__color: 'brown',
-    style__ellipse__stroke__color: 'orange'
-}
+    character_set = [ '|', 'o', '.' ]
+    options = {
+        style__line__stroke__color: 'brown',
+        style__ellipse__stroke__color: 'orange'
+    }
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/7.svg">
 
 ```ruby
-character_set = [ '/', '\' ]
-options = {
-    style__line__stroke__color: 'brown',
-    style__ellipse__stroke__color: 'orange'
-}
+    character_set = [ '/', '\' ]
+    options = {
+        style__line__stroke__color: 'brown',
+        style__ellipse__stroke__color: 'orange'
+    }
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/12.svg">
 
 ```ruby
-character_set = [ 'x', '.' ]
+    character_set = [ 'x', '.' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/14.svg">
 
 ```ruby
-character_set = [ '|', '.', '-' ]
-options = {
-    style__canvas__fill__color: '#0A0C10',
-    style__line__stroke__color: '#8D949D'
-}
+    character_set = [ '|', '.', '-' ]
+    options = {
+        style__canvas__fill__color: '#0A0C10',
+        style__line__stroke__color: '#8D949D'
+    }
 ```
 
 ## Quickstart
