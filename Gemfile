@@ -8,3 +8,5 @@ gemspec
 gem "rake", "~> 13.0"
 
 gem "rubocop", "~> 1.7"
+
+gem "digest", "~> 3.0.0"
