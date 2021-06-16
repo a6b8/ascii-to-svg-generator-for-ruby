@@ -7,7 +7,7 @@ require 'digest'
 module AsciiToSvg
   class Error < StandardError; end
 
-  @template = {
+  @TEMPLATE = {
       canvas: {
           size:{
             x: 500,
@@ -89,11 +89,8 @@ module AsciiToSvg
       }
   }
 
-  @default = @template.clone
-
-
-  def self.options
-    return @template
+  def self.get_options()
+    return @TEMPLATE
   end
 
 
@@ -106,7 +103,6 @@ module AsciiToSvg
 
   def self.from_string( ascii, _length, vars = {} )
     if self.options_update( vars, true )
-      self.reset_default
       options, lines = self.options_prepare( ascii, _length, vars )
       elements = ''
       for y in 0..options[:grid][:y][:length] - 1
@@ -156,11 +152,6 @@ module AsciiToSvg
 
   private
 
-  def self.reset_default
-    @default = @template.clone
-  end
-
-
   def self.str_difference( a, b )
     a = a.to_s.downcase.split( '_' ).join( '' )
     b = b.to_s.downcase.split( '_' ).join( '' )
@@ -200,20 +191,21 @@ module AsciiToSvg
     ]
   
     messages = []
-    options = @default.clone
+    _options = Marshal.load( Marshal.dump( @TEMPLATE ) )
+    
     vars.keys.each do | key |
       if allow_list.include?( key ) 
   
         keys = key.to_s.split( '__' ).map { | a | a.to_sym }
         case( keys.length )
           when 1
-            options[ keys[ 0 ] ] = vars[ key ]
+            _options[ keys[ 0 ] ] = vars[ key ]
           when 2
-            options[ keys[ 0 ] ][ keys[ 1 ] ] = vars[ key ]
+            _options[ keys[ 0 ] ][ keys[ 1 ] ] = vars[ key ]
           when 3
-            options[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ] = vars[ key ]
+            _options[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ] = vars[ key ]
           when 4
-            options[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ][ keys[ 3 ] ] = vars[ key ]
+            _options[ keys[ 0 ] ][ keys[ 1 ] ][ keys[ 2 ] ][ keys[ 3 ] ] = vars[ key ]
         end
       else
         nearest = allow_list
@@ -230,7 +222,7 @@ module AsciiToSvg
       messages.length == 1 ? puts( 'Error found:' ) : puts( 'Errors found:' ) 
       messages.each { | m | puts( '- ' + m ) }
     end
-    return validation ? messages.length == 0 : options
+    return validation ? messages.length == 0 : _options
   end
 
 

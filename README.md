@@ -3,6 +3,13 @@ This module generates beautiful svg images based on a string input.
 
 ## Examples
 
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/0.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/1.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/2.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/3.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banner/4.svg">
+
+
 
 ## Quickstart
 1. Install `gem`
@@ -171,14 +178,14 @@ Defines all Style Attributes. Styles can only changed by type of the svg element
 [**Rectangle**](#rectangle)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| D.10. | Fill Color |:style__rectangle__fill__color | `"rgb(0,0,0)"` | String | |
-| D.11. | Fill Opacity |:style__rectangle__fill__opacity | `1.0` | Float | |
+| D.10. | Fill Color |:style__rectangle__fill__color | `"rgb(0,0,0)"` | String | Define infill color in RGB, you can also use HTML Color names or "none". |
+| D.11. | Fill Opacity |:style__rectangle__fill__opacity | `1.0` | Float | Set infill opacity, use floating numbers. |
 
 [**Canvas**](#canvas)
 | Nr | Name | Key | Default | Type | Description |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| D.12. | Fill Color |:style__canvas__fill__color | `"rgb(255,255,255)"` | String | |
-| D.13. | Fill Opacity |:style__canvas__fill__opacity | `1.0` | Float | |
+| D.12. | Fill Color |:style__canvas__fill__color | `"rgb(255,255,255)"` | String | Define canvas infill color in RGB, you can also use HTML Color names or "none". |
+| D.13. | Fill Opacity |:style__canvas__fill__opacity | `1.0` | Float | Set canvas infill opacity, use floating numbers.|
 
 
 ## Contributing

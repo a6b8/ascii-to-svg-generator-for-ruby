@@ -6,7 +6,7 @@ sets = [
         characters: [ '-', '/', '|', "\\", '+' ],
         times: 512,
         chars: 32,
-        path: './result/0-many-characters.svg',
+        path: '0-many-characters.svg',
         params: {}
     },
     {
@@ -14,15 +14,15 @@ sets = [
         characters: [ '-', '/', '|', "\\", '+', '#', '.' ],
         times: 512,
         chars: 16,
-        path: './result/1-many-characters.svg',
-        params: { canvas__size__x: 400 }
+        path: '1-many-characters.svg',
+        params: { canvas__size__x: 200 }
     },
     {
         test: 'Draw squares',
         characters: [ '#' ],
         times: 256,
         chars: 16,
-        path: './result/2-squuares.svg',
+        path: '2-squuares.svg',
         params: {}
     },
     {
@@ -30,7 +30,7 @@ sets = [
         characters: [ 'o' ],
         times: 256,
         chars: 16,
-        path: './result/3-offset.svg',
+        path: '3-offset.svg',
         params: { cell__x__offset: 6, cell__y__offset: 6, }
     },
     {
@@ -38,7 +38,7 @@ sets = [
         characters: [ 'x' ],
         times: 256,
         chars: 16,
-        path: './result/3-offset-2.svg',
+        path: '3-offset-2.svg',
         params: { canvas__size__x: 300, cell__x__offset: 8, cell__y__offset: 8, }
     },
     {   
@@ -46,7 +46,7 @@ sets = [
         characters: [ 'X', '#' ],
         times: 256,
         chars: 16,
-        path: './result/4-offset-minus.svg',
+        path: '4-offset-minus.svg',
         params: { cell__x__offset: -2, cell__y__offset: -2 }
     },
     {   
@@ -54,7 +54,7 @@ sets = [
         characters: [ '/', "#", "o" ],
         times: 256,
         chars: 16,
-        path: './result/5-color.svg',
+        path: '5-color.svg',
         params: { 
             style__line__stroke__color: 'rgb(50,100,150)', 
             style__ellipse__stroke__color: 'rgb(150,200,250)',
@@ -67,18 +67,18 @@ sets = [
         characters: [ '-', '/', '|', "\\", '+' ],
         times: 128,
         chars: 16,
-        path: './result/7-banner.svg',
+        path: '7-banner.svg',
         params: { cell__x__offset: -2, cell__y__offset: -2 }
     }
 ] 
 
 puts 'TEST SVG'
-for index in 3..sets.length-1
+for index in 0..sets.length-1
     set = sets[ index ]
     puts " [#{index}]\t" + set[:test]
     ascii = AsciiToSvg.example_string( set[:characters], set[:times] )
     svg = AsciiToSvg.from_string( ascii, set[:chars], set[:params] )
-    File.open( set[:path], "w" ) { | f | f.write( svg ) }
+    File.open( './examples/' + set[:path], "w" ) { | f | f.write( svg ) }
 end
 
 
