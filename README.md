@@ -8,7 +8,7 @@ e
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/0.svg">
 
 ```ruby
-character_set = [ '-', '/', '|', "\\", '#' ]
+character_set = [ '-', '/', '|', "\", '#' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/3.svg">
@@ -20,7 +20,7 @@ character_set = [ '-', '|', '#' ]
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/4.svg">
 
 ```ruby
-character_set = [ '-', '|', '#', 'o', '\\' ]
+character_set = [ '-', '|', '#', 'o', '\' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/6.svg">
@@ -36,7 +36,7 @@ options = {
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/7.svg">
 
 ```ruby
-character_set = [ '/', '\\' ]
+character_set = [ '/', '\' ]
 options = {
     style__line__stroke__color: 'brown',
     style__ellipse__stroke__color: 'orange'
@@ -70,7 +70,7 @@ options = {
     require 'ascii_to_svg'
 
     # Generate Example String
-    ascii = AsciiToSvg.example_string( ['x', 'o'], 256 )
+    ascii = AsciiToSvg.example_string( [ 'x', 'o' ], 256 )
 
     # Generate SVG
     svg = AsciiToSvg.from_string( ascii, 16, {} )
@@ -95,7 +95,7 @@ options = {
 
 ```ruby
     one = AsciiToSvg.example_string()
-    two = AsciiToSvg.example_string( ['x', 'o' ], 512 )
+    two = AsciiToSvg.example_string( [ 'x', 'o' ], 512 )
 ```
 
 ### AsciiToSvg.from_string()
@@ -119,10 +119,10 @@ options = {
 ### AsciiToSvg.similar_svg()
 
 ```ruby
-    original_str = AsciiToSvg.example_string( ['x', 'o'], 256 )
+    original_str = AsciiToSvg.example_string( [ 'x', 'o' ], 256 )
     original_svg = AsciiToSvg.from_string( original_str, 16, {} )
 
-    copy_str = original_str[ 0, original_str.length-1 ]
+    copy_str = original_str[ 0, original_str.length - 1 ]
     copy_svg = AsciiToSvg.from_string( copy_str, 16, {} )
 
     AsciiToSvg.similar_svg( original_svg, copy_svg )
@@ -148,10 +148,6 @@ Canvas
 |        |   |        V             |
 |        |   ------------------------
 ```
-
-
-
-
 
 ## Signs
 
@@ -193,14 +189,14 @@ Defines the Area of one symbol including offset.
 Defines which `char` will be interpreted as "`svg element`"
 | Nr | Name | Key | Default | Type | Image |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| C.1. | \ |:options__\\\\ | `["\\"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/3-tl-br.svg"> |
-| C.2. | / | :options__/ | `["/"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/1-tr-bl.svg"> |
-| C.3. | X | :options__X | `["X", "x"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/7-x.svg"> |
-| C.4. | - | :options__- | `["-"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/0-minus.svg"> |
-| C.5. | \| | :options__\| | `["\|", "1"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/2-vertical.svg"> |
-| C.6. | O | :options__O | `["O", "o", "0"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/8-ellipse.svg"> |
-| C.7. | + | :options__+ | `["+"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/4-plus.svg"> |
-| C.8. | # | :options__# | `["#"]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/5-rectangle.svg"> |
+| C.1. | \ |:options__\\\\ | `[ "\\" ]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/3-tl-br.svg"> |
+| C.2. | / | :options__/ | `[ "/" ]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/1-tr-bl.svg"> |
+| C.3. | X | :options__X | `[ "X", "x" ]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/7-x.svg"> |
+| C.4. | - | :options__- | `[ "-" ]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/0-minus.svg"> |
+| C.5. | \| | :options__\| | `[ "\|", "1" ]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/2-vertical.svg"> |
+| C.6. | O | :options__O | `[ "O", "o", "0" ]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/8-ellipse.svg"> |
+| C.7. | + | :options__+ | `[ "+" ]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/4-plus.svg"> |
+| C.8. | # | :options__# | `[ "#" ]` | Array | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/5-rectangle.svg"> |
 
 
 ### Style
