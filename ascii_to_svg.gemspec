@@ -8,13 +8,13 @@ Gem::Specification.new do |spec|
   spec.authors       = ["a6b8"]
   spec.email         = ["hello@13plu4.com"]
 
-  spec.summary       = "Generative Art based on input Strings."
-  spec.description   = "Generates beautiful svg vecor images based on a string input. "
+  spec.summary       = "Generative Art based on a input string."
+  spec.description   = "Generates beautiful svg vecor images based on a input string"
   spec.homepage      = "https://github.com/a6b8/ascii-to-svg-generator-for-ruby"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/a6b8/ascii-to-svg-generator-for-ruby"
