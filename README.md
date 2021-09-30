@@ -1,92 +1,125 @@
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/ascii-to-svg.svg" height="60px" banner="Ascii Art To Svg">
-
-**Ascii to Svg Generator for Ruby**
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/ascii-to-svg.svg" height="45px" alt="Ascii Art To Svg" name="headline">
+</a>
 
 This module generates beautiful svg images based on a input string.
 
-## Examples
+<br>
+
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/examples.svg" height="38px" alt="Examples" name="examples">
+</a>
+
+<br>
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/0.svg" headline="Example">
 
 ```ruby
-    character_set = [ '-', '/', '|', "\", '#' ]
+character_set = [ '-', '/', '|', "\", '#' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/3.svg">
 
 ```ruby
-    character_set = [ '-', '|', '#' ]
+character_set = [ '-', '|', '#' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/4.svg">
 
 ```ruby
-    character_set = [ '-', '|', '#', 'o', '\' ]
+character_set = [ '-', '|', '#', 'o', '\' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/6.svg">
 
 ```ruby
-    character_set = [ '|', 'o', '.' ]
-    options = {
-        style__line__stroke__color: 'brown',
-        style__ellipse__stroke__color: 'orange'
-    }
+character_set = [ '|', 'o', '.' ]
+options = {
+    style__line__stroke__color: 'brown',
+    style__ellipse__stroke__color: 'orange'
+}
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/7.svg">
 
 ```ruby
-    character_set = [ '/', '\' ]
-    options = {
-        style__line__stroke__color: 'brown',
-        style__ellipse__stroke__color: 'orange'
-    }
+character_set = [ '/', '\' ]
+options = {
+    style__line__stroke__color: 'brown',
+    style__ellipse__stroke__color: 'orange'
+}
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/12.svg">
 
 ```ruby
-    character_set = [ 'x', '.' ]
+character_set = [ 'x', '.' ]
 ```
 
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/14.svg">
 
 ```ruby
-    character_set = [ '|', '.', '-' ]
-    options = {
-        style__canvas__fill__color: '#0A0C10',
-        style__line__stroke__color: '#8D949D'
-    }
+character_set = [ '|', '.', '-' ]
+options = {
+    style__canvas__fill__color: '#0A0C10',
+    style__line__stroke__color: '#8D949D'
+}
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/quickstart.svg" height="60px" banner="Quickstart">
+<br>
+
+<a href="#headline">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/table-of-contents.svg" height="38px" name="table-of-contents" alt="Table of Contents">
+</a>
+<br>
+
+1. [Examples](#examples)<br>
+2. [Quickstart](#quickstart)<br>
+3. [Setup](#setup)
+4. [Methods](#methods)<br>
+5. [Options](#options)<br>
+6. [Contributing](#contributing)<br>
+7. [Limitations](#limitations)<br>
+8. [License](#license)<br>
+9. [Code of Conduct](#code-of-conduct)<br>
+10. [Support my Work](#support-my-work)<br>
+
+<br>
+
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/quickstart.svg" height="38px" alt="Quickstart" name="quickstart">
+</a>
+
 
 1. Install `gem`
 ```ruby
-    gem install 'ascii_to_svg'
+gem install 'ascii_to_svg'
 ```
 
 2. Run Code
 ```ruby
-    require 'ascii_to_svg'
+require 'ascii_to_svg'
 
-    # Generate Example String
-    ascii = AsciiToSvg.example_string( [ 'x', 'o' ], 256 )
+# Generate Example String
+ascii = AsciiToSvg.example_string( [ 'x', 'o' ], 256 )
 
-    # Generate SVG
-    svg = AsciiToSvg.from_string( ascii, 16, {} )
+# Generate SVG
+svg = AsciiToSvg.from_string( ascii, 16, {} )
 
-    # => "<svg xmlns=\"http://www.w3.org/2000/svg ...
+# => "<svg xmlns=\"http://www.w3.org/2000/svg ...
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/functions.svg" height="60px" banner="Functions">
+<br>
+
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/functions.svg" height="38px" alt="Functions" name="functions">
+</a>
 
 ### AsciiToSvg.options<br>
   Output all Parameter
 ```ruby
-    AsciiToSvg.options
-    # => {:canvas=>{:size=>{:x=>500 ...
+AsciiToSvg.options
+# => {:canvas=>{:size=>{:x=>500 ...
 ```
 ### AsciiToSvg.example_string()
 
@@ -97,8 +130,8 @@ This module generates beautiful svg images based on a input string.
 <br>
 
 ```ruby
-    one = AsciiToSvg.example_string()
-    two = AsciiToSvg.example_string( [ 'x', 'o' ], 512 )
+one = AsciiToSvg.example_string()
+two = AsciiToSvg.example_string( [ 'x', 'o' ], 512 )
 ```
 
 ### AsciiToSvg.from_string()
@@ -111,28 +144,32 @@ This module generates beautiful svg images based on a input string.
 <br>
 
 ```ruby
-    AsciiToSvg.from_string(
-        ascii, 
-        length, 
-        options
-    )
+AsciiToSvg.from_string(
+    ascii, 
+    length, 
+    options
+)
 ```
 
 
 ### AsciiToSvg.similar_svg()
 
 ```ruby
-    original_str = AsciiToSvg.example_string( [ 'x', 'o' ], 256 )
-    original_svg = AsciiToSvg.from_string( original_str, 16, {} )
+original_str = AsciiToSvg.example_string( [ 'x', 'o' ], 256 )
+original_svg = AsciiToSvg.from_string( original_str, 16, {} )
 
-    copy_str = original_str[ 0, original_str.length - 1 ]
-    copy_svg = AsciiToSvg.from_string( copy_str, 16, {} )
+copy_str = original_str[ 0, original_str.length - 1 ]
+copy_svg = AsciiToSvg.from_string( copy_str, 16, {} )
 
-    AsciiToSvg.similar_svg( original_svg, copy_svg )
-    # => => {:hexdigest1=>"79d5e81d230214749672a1c10e103c46", :hexdigest2=>"f48cacecf2720633dd081c3421d84981", :unique=>false, :score=>0.002799275481640046} 
+AsciiToSvg.similar_svg( original_svg, copy_svg )
+# => => {:hexdigest1=>"79d5e81d230214749672a1c10e103c46", :hexdigest2=>"f48cacecf2720633dd081c3421d84981", :unique=>false, :score=>0.002799275481640046} 
 ```  
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/naming.svg" height="60px" banner="Naming">
+<br>
+
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/naming.svg" height="38px" alt="Naming" name="naming">
+</a>
 
 ```
 CANVAS
@@ -153,7 +190,11 @@ CANVAS
 |        |   ------------------------
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/symbols.svg" height="60px" banner="Symbols">
+<br>
+
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/symbols.svg" height="38px" alt="Symbols" name="symbols">
+</a>
 
 | Nr | Sign | Image | SVG Element |
 | :-- | :-- | :-- | :-- |
@@ -167,9 +208,11 @@ CANVAS
 | 8 | "#" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/5-rectangle.svg"> | Rectangle |
 | 9 | "." | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/6-empty.svg"> | |
 
+<br>
 
-
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/options.svg" height="60px" banner="Options">
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/options.svg" height="38px" alt="Options" name="options">
+</a>
 
 ### Canvas
 Defines the full width and height.
@@ -235,18 +278,34 @@ Defines all Style Attributes. Styles can only changed by type of the svg element
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | D.12. | Fill Color |:style__canvas__fill__color | `"rgb(255,255,255)"` | String | Define canvas infill color in RGB, you can also use HTML Color names or "none". |
 | D.13. | Fill Opacity |:style__canvas__fill__opacity | `1.0` | Float | Set canvas infill opacity, use floating numbers.|
+<br>
 
-
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/contributing.svg" height="60px" banner="Contributing">
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/contributing.svg" height="38px" alt="Contributing" name="contributing">
+</a>
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/a6b8/ascii_to_svg. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/a6b8/ascii_to_svg/blob/master/CODE_OF_CONDUCT.md).
 
+<br>
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/license.svg" height="60px" banner="License">
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/limitations.svg" height="38px" name="limitations" alt="Limitations">
+</a>
+
+- Proof of Concept, not battle-tested.
+
+<br>
+
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/license.svg" height="38px" alt="License" name="license">
+</a>
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
+<br>
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/code-of-conduct.svg" height="60px" banner="Code of Conduct">
+<a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/code-of-conduct.svg" height="38px" alt="Code of Conduct" name="code-of-conduct">
+</a>
 
 Everyone interacting in the AsciiToSvg project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/a6b8/ascii_to_svg/blob/master/CODE_OF_CONDUCT.md).
