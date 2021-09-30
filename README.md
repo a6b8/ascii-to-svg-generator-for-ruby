@@ -77,7 +77,7 @@ options = {
 2. [Quickstart](#quickstart)<br>
 3. [Functions](#functions)
 4. [Naming](#naming)<br>
-5. [Symbols](#symbols)<br>
+5. [Symbols](#symbols-heading)<br>
 6. [Options](#options)<br>
 7. [Contributing](#contributing)<br>
 8. [Limitations](#limitations)<br>
@@ -194,7 +194,7 @@ CANVAS
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/symbols.svg" height="38px" alt="Symbols" name="symbols">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/symbols.svg" height="38px" alt="Symbols" name="symbols-heading">
 </a>
 
 | Nr | Sign | Image | SVG Element |
