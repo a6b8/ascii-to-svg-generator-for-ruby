@@ -75,14 +75,15 @@ options = {
 
 1. [Examples](#examples)<br>
 2. [Quickstart](#quickstart)<br>
-3. [Setup](#setup)
-4. [Methods](#methods)<br>
-5. [Options](#options)<br>
-6. [Contributing](#contributing)<br>
-7. [Limitations](#limitations)<br>
-8. [License](#license)<br>
-9. [Code of Conduct](#code-of-conduct)<br>
-10. [Support my Work](#support-my-work)<br>
+3. [Functions](#functions)
+4. [Naming](#naming)<br>
+5. [Symbols](#symbols)<br>
+6. [Options](#options)<br>
+7. [Contributing](#contributing)<br>
+8. [Limitations](#limitations)<br>
+9. [License](#license)<br>
+10. [Code of Conduct](#code-of-conduct)<br>
+11. [Support my Work](#support-my-work)<br>
 
 <br>
 
@@ -309,3 +310,11 @@ The gem is available as open source under the terms of the [MIT License](https:/
 </a>
 
 Everyone interacting in the AsciiToSvg project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/a6b8/ascii_to_svg/blob/master/CODE_OF_CONDUCT.md).
+
+<br>
+
+<a href="#table-of-contents">
+<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/support-my-work.svg" height="38px" name="support-my-work" alt="Support my Work">
+</a>
+    
+Donate by [https://www.paypal.com](https://www.paypal.com/donate?hosted_button_id=XKYLQ9FBGC4RG)
