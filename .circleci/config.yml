@@ -5,4 +5,4 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-      - run: ruby './test/circle-ci.rb' 
+      - run: ruby './test/circle_ci.rb' 
