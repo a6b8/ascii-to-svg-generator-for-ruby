@@ -74,7 +74,7 @@ sets = [
 
 puts 'COMPARE OUTPUT'
 results = []
-folder = Dir.pwd + '/examples/'
+folder = Dir.pwd + '/test/examples/'
 sets.each.with_index do | set, index |
     p = folder + set[:filename] + '.txt'
     ascii = File.read( p )
