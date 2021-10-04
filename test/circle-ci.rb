@@ -1,4 +1,4 @@
-require '../lib/ascii_to_svg'
+require './lib/ascii_to_svg'
 
 sets = [
     {
