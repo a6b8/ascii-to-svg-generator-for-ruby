@@ -1,0 +1,8 @@
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:3.0.2
+    steps:
+      - checkout
+      - run: bundle install
+      - run: ruby './test/circle-ci.rb' 
