@@ -74,12 +74,13 @@ sets = [
 
 puts 'COMPARE OUTPUT'
 results = []
+folder = Dir.pwd + '/examples/'
 sets.each.with_index do | set, index |
-    p = './examples/' + set[:filename] + '.txt'
+    p = folder + set[:filename] + '.txt'
     ascii = File.read( p )
     svg = AsciiToSvg.from_string( ascii, set[:chars], set[:params] )
 
-    p = './examples/' + set[:filename] + '.svg'
+    p = folder + set[:filename] + '.svg'
     original = File.read( p )
     result =  AsciiToSvg.similar_svg( original, svg )
 
