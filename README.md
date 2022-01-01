@@ -1,5 +1,5 @@
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/headline.svg" height="45px" alt="# Ascii Art To Svg" name="Ascii Art To SVG">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/headline.svg" height="45px" alt="Ascii Art To Svg" name="# Ascii Art To SVG">
 </a>
 
 This module generates beautiful svg images based on a input string.
