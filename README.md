@@ -1,5 +1,5 @@
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/headline.svg" height="45px" alt="Ascii Art To Svg" name="# Ascii Art To SVG">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/custom/ascii-art-to-svg.svg" height="45px" alt="Ascii Art To Svg" name="# Ascii Art To SVG">
 </a>
 
 This module generates beautiful svg images based on a input string.
@@ -7,30 +7,30 @@ This module generates beautiful svg images based on a input string.
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/examples.svg" height="38px" alt="Examples" name="examples">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/examples.svg" height="45px" alt="Examples" name="examples">
 </a>
 
 <br>
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/0.svg" headline="Example">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/banners/0.svg" headline="Example">
 
 ```ruby
 character_set = [ '-', '/', '|', "\", '#' ]
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/3.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/banners/3.svg">
 
 ```ruby
 character_set = [ '-', '|', '#' ]
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/4.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/banners/4.svg">
 
 ```ruby
 character_set = [ '-', '|', '#', 'o', '\' ]
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/6.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/banners/6.svg">
 
 ```ruby
 character_set = [ '|', 'o', '.' ]
@@ -40,7 +40,7 @@ options = {
 }
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/7.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/banners/7.svg">
 
 ```ruby
 character_set = [ '/', '\' ]
@@ -50,13 +50,13 @@ options = {
 }
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/12.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/banners/12.svg">
 
 ```ruby
 character_set = [ 'x', '.' ]
 ```
 
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/banners/14.svg">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/banners/14.svg">
 
 ```ruby
 character_set = [ '|', '.', '-' ]
@@ -69,7 +69,7 @@ options = {
 <br>
 
 <a href="#headline">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/table-of-contents.svg" height="38px" name="table-of-contents" alt="Table of Contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/table-of-contents.svg" height="45px" name="table-of-contents" alt="Table of Contents">
 </a>
 <br>
 
@@ -88,7 +88,7 @@ options = {
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/quickstart.svg" height="38px" alt="Quickstart" name="quickstart">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/quickstart.svg" height="45px" alt="Quickstart" name="quickstart">
 </a>
 
 
@@ -113,7 +113,7 @@ svg = AsciiToSvg.from_string( ascii, 16, {} )
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/functions.svg" height="38px" alt="Functions" name="functions">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/functions.svg" height="45px" alt="Functions" name="functions">
 </a>
 
 ### AsciiToSvg.options<br>
@@ -169,7 +169,7 @@ AsciiToSvg.similar_svg( original_svg, copy_svg )
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/naming.svg" height="38px" alt="Naming" name="naming">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/naming.svg" height="45px" alt="Naming" name="naming">
 </a>
 
 ```
@@ -194,7 +194,7 @@ CANVAS
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/symbols.svg" height="38px" alt="Symbols" name="symbols-heading">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/symbols.svg" height="45px" alt="Symbols" name="symbols-heading">
 </a>
 
 | Nr | Sign | Image | SVG Element |
@@ -212,7 +212,7 @@ CANVAS
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/options.svg" height="38px" alt="Options" name="options">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/options.svg" height="45px" alt="Options" name="options">
 </a>
 
 ### Canvas
@@ -282,7 +282,7 @@ Defines all Style Attributes. Styles can only changed by type of the svg element
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/contributing.svg" height="38px" alt="Contributing" name="contributing">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/contributing.svg" height="45px" alt="Contributing" name="contributing">
 </a>
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/a6b8/ascii_to_svg. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/a6b8/ascii_to_svg/blob/master/CODE_OF_CONDUCT.md).
@@ -290,7 +290,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/a6b8/a
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/limitations.svg" height="38px" name="limitations" alt="Limitations">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/limitations.svg" height="45px" name="limitations" alt="Limitations">
 </a>
 
 - Proof of Concept, not battle-tested.
@@ -298,7 +298,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/a6b8/a
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/license.svg" height="38px" alt="License" name="license">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/license.svg" height="45px" alt="License" name="license">
 </a>
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
@@ -306,7 +306,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/code-of-conduct.svg" height="38px" alt="Code of Conduct" name="code-of-conduct">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/code-of-conduct.svg" height="45px" alt="Code of Conduct" name="code-of-conduct">
 </a>
 
 Everyone interacting in the AsciiToSvg project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/a6b8/ascii_to_svg/blob/master/CODE_OF_CONDUCT.md).
@@ -314,7 +314,7 @@ Everyone interacting in the AsciiToSvg project's codebases, issue trackers, chat
 <br>
 
 <a href="#table-of-contents">
-<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/headlines/support-my-work.svg" height="38px" name="support-my-work" alt="Support my Work">
+<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/star-us.svg" height="55px" name="star-us" alt="Star us">
 </a>
-    
-Donate by [https://www.paypal.com](https://www.paypal.com/donate?hosted_button_id=XKYLQ9FBGC4RG)
+
+Please ⭐️ star this Project, every ⭐️ star makes us very happy!
