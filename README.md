@@ -194,7 +194,7 @@ CANVAS
 <br>
 
 <a href="#table-of-contents">
-<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/symbols.svg" height="45px" alt="Symbols" name="symbols-heading">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/symbols.svg" height="45px" alt="Symbols" name="Symbols">
 </a>
 
 | Nr | Sign | Image | SVG Element |
@@ -314,7 +314,7 @@ Everyone interacting in the AsciiToSvg project's codebases, issue trackers, chat
 <br>
 
 <a href="#table-of-contents">
-<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/star-us.svg" height="55px" name="star-us" alt="Star us">
+<img href="#table-of-contents" src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/star-us.svg" height="45px" name="star-us" alt="Star us">
 </a>
 
 Please ⭐️ star this Project, every ⭐️ star makes us very happy!
