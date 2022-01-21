@@ -199,15 +199,15 @@ CANVAS
 
 | Nr | Sign | Image | SVG Element |
 | :-- | :-- | :-- | :-- |
-| 1 | "\\" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/3-tl-br.svg"> | Line |
-| 2 | "\|" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/2-vertical.svg"> | Line |
-| 3 | "/" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/1-tr-bl.svg"> | Line |
-| 4 | "-" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/0-minus.svg"> | Line |
-| 5 | "+" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/4-plus.svg"> | Line |
-| 6 | "x" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/7-x.svg"> | Line |
-| 7 | "o" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/8-ellipse.svg"> | Ellipse |
-| 8 | "#" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/5-rectangle.svg"> | Rectangle |
-| 9 | "." | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/docs/ascii-to-svg-for-ruby/readme/symbols/6-empty.svg"> | |
+| 1 | "\\" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/3-tl-br.svg"> | Line |
+| 2 | "\|" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/2-vertical.svg"> | Line |
+| 3 | "/" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/1-tr-bl.svg"> | Line |
+| 4 | "-" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/0-minus.svg"> | Line |
+| 5 | "+" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/4-plus.svg"> | Line |
+| 6 | "x" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/7-x.svg"> | Line |
+| 7 | "o" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/8-ellipse.svg"> | Ellipse |
+| 8 | "#" | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/5-rectangle.svg"> | Rectangle |
+| 9 | "." | <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/additional/ascii-to-svg-for-ruby/symbols/6-empty.svg"> | |
 
 <br>
 
