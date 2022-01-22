@@ -81,9 +81,10 @@ options = {
 6. [Options](#options)<br>
 7. [Contributing](#contributing)<br>
 8. [Limitations](#limitations)<br>
-9. [License](#license)<br>
-10. [Code of Conduct](#code-of-conduct)<br>
-11. [Support my Work](#support-my-work)<br>
+9. [Credits](#Credits)<br>
+10. [License](#license)<br>
+11. [Code of Conduct](#code-of-conduct)<br>
+12. [Support my Work](#support-my-work)<br>
 
 <br>
 
