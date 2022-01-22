@@ -113,6 +113,31 @@ svg = AsciiToSvg.from_string( ascii, 16, {} )
 <br>
 
 <a href="#table-of-contents">
+<img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/setup.svg" height="45px" name="setup" alt="Setup">
+</a>
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'ascii_to_svg'
+```
+
+And then execute:
+
+    $ bundle install
+
+Or install it yourself as:
+
+    $ gem install ascii_to_svg
+
+
+On Rubygems: 
+- Gem: https://rubygems.org/gems/ascii_to_svg
+- Profile: https://rubygems.org/profiles/a6b8
+
+<br>
+
+<a href="#table-of-contents">
 <img src="https://raw.githubusercontent.com/a6b8/a6b8/main/assets/headlines/default/functions.svg" height="45px" alt="Functions" name="functions">
 </a>
 
