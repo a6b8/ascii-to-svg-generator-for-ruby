@@ -4,7 +4,6 @@ on: push
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   test:
@@ -17,7 +16,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
-          bundler-cache: true
 
       - name: Install dependencies
         run: bundle install
