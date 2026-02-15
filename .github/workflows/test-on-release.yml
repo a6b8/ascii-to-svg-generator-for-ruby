@@ -4,6 +4,7 @@ on: push
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   test:
@@ -22,3 +23,11 @@ jobs:
 
       - name: Run tests
         run: bundle exec ruby test/circle_ci.rb
+
+      - name: Upload coverage to Codecov (OIDC)
+        uses: codecov/codecov-action@v5
+        with:
+          use_oidc: true
+          files: ./coverage/lcov/project.lcov
+          fail_ci_if_error: false
+          flags: unittests
